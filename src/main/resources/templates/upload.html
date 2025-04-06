@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload MCQ PDF</title>
+</head>
+<body>
+    <h2>Upload MCQ PDF</h2>
+
+    <!-- Display message if available -->
+    <p th:if="${message}" th:text="${message}"></p>
+
+    <form method="post" enctype="multipart/form-data" th:action="@{/uploadPdf}">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <br>
+    <a href="/quiz">Start the Quiz</a>
+</body>
+</html>

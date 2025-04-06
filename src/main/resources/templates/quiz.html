@@ -1,0 +1,21 @@
+<!-- src/main/resources/templates/quiz.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MCQ Quiz</title>
+</head>
+<body>
+    <h1>MCQ Quiz</h1>
+    <form action="/submitQuiz" method="post">
+        <div th:each="question : ${questions}">
+            <p th:text="${question.questionText}"></p>
+            <input type="radio" th:name="'question_' + ${question.id}" th:value="${question.optionA}"/> <span th:text="${question.optionA}"></span><br/>
+            <input type="radio" th:name="'question_' + ${question.id}" th:value="${question.optionB}"/> <span th:text="${question.optionB}"></span><br/>
+            <input type="radio" th:name="'question_' + ${question.id}" th:value="${question.optionC}"/> <span th:text="${question.optionC}"></span><br/>
+            <input type="radio" th:name="'question_' + ${question.id}" th:value="${question.optionD}"/> <span th:text="${question.optionD}"></span><br/>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
